@@ -1,0 +1,245 @@
+{
+    "Default400": {
+        "description": "The server could not understand the request due to invalid syntax.",
+        "type": "object",
+        "properties": {
+            "error": {
+                "type": "string",
+                "description": "Error code",
+                "example": "INVALID_REQUEST"
+            },
+            "message": {
+                "type": "string",
+                "description": "Error description",
+                "example": "The request is missing a required parameter"
+            },
+            "details": {
+                "type": "object",
+                "description": "Additional info about the error",
+                "example": {
+                    "missing_parameter": "name"
+                }
+            }
+        }
+    },
+    "Default401": {
+        "description": "The client must authenticate itself to get the requested response.",
+        "type": "object",
+        "properties": {
+            "error": {
+                "type": "string",
+                "description": "Error code",
+                "example": "UNAUTHORIZED"
+            },
+            "message": {
+                "type": "string",
+                "description": "Error description",
+                "example": "The request requires user authentication"
+            },
+            "details": {
+                "type": "object",
+                "description": "Additional info about the error",
+                "example": {
+                    "missing_parameter": "token"
+                }
+            }
+        }
+    },
+    "Default404": {
+        "description": "The server can not find the requested resource.",
+        "type": "object",
+        "properties": {
+            "error": {
+                "type": "string",
+                "description": "Error code",
+                "example": "NOT_FOUND"
+            },
+            "message": {
+                "type": "string",
+                "description": "Error description",
+                "example": "The requested resource was not found"
+            },
+            "details": {
+                "type": "object",
+                "description": "Additional info about the error",
+                "example": {
+                    "resource": "user"
+                }
+            }
+        }
+    },
+    "Default403": {
+        "description": "The client does not have access rights to the content; the request should not be repeated.",
+        "type": "object",
+        "properties": {
+            "error": {
+                "type": "string",
+                "description": "Error code",
+                "example": "FORBIDDEN"
+            },
+            "message": {
+                "type": "string",
+                "description": "Error description",
+                "example": "The request is not allowed"
+            },
+            "details": {
+                "type": "object",
+                "description": "Additional info about the error",
+                "example": {
+                    "resource": "userInformation"
+                }
+            }
+        }
+    },
+    "Default405": {
+        "description": "The request method is known by the server but is not supported by the target resource.",
+        "type": "object",
+        "properties": {
+            "error": {
+                "type": "string",
+                "description": "Error code",
+                "example": "METHOD_NOT_ALLOWED"
+            },
+            "message": {
+                "type": "string",
+                "description": "Error description",
+                "example": "The request method is not allowed"
+            },
+            "details": {
+                "type": "object",
+                "description": "Additional info about the error",
+                "example": {
+                    "method": "POST"
+                }
+            }
+        }
+    },
+    "Default409": {
+        "description": "The request could not be completed due to a conflict with the current state of the resource.",
+        "type": "object",
+        "properties": {
+            "error": {
+                "type": "string",
+                "description": "Error code",
+                "example": "CONFLICT"
+            },
+            "message": {
+                "type": "string",
+                "description": "Error description",
+                "example": "The request could not be completed due to a conflict with the current state of the resource"
+            },
+            "details": {
+                "type": "object",
+                "description": "Additional info about the error",
+                "example": {
+                    "description": "The user already exists"
+                }
+            }
+        }
+    },
+    "Default415": {
+        "description": "The media format of the requested data is not supported by the server.",
+        "type": "object",
+        "properties": {
+            "error": {
+                "type": "string",
+                "description": "Error code",
+                "example": "UNSUPPORTED_MEDIA_TYPE"
+            },
+            "message": {
+                "type": "string",
+                "description": "Error description",
+                "example": "The media format of the requested data is not supported by the server."
+            },
+            "details": {
+                "type": "object",
+                "description": "Additional info about the error",
+                "example": {
+                    "description": "The media format of the requested data is not supported by the server."
+                }
+            }
+        }
+    },
+    "Default422": {
+        "description": "The request was well-formed but was unable to be followed due to semantic errors.",
+        "type": "object",
+        "properties": {
+            "error": {
+                "type": "string",
+                "description": "Error code",
+                "example": "UNPROCESSABLE_ENTITY"
+            },
+            "message": {
+                "type": "string",
+                "description": "Error description",
+                "example": "The request was well-formed but was unable to be followed due to semantic errors"
+            },
+            "details": {
+                "type": "object",
+                "description": "Additional info about the error",
+                "example": {
+                    "validation_errors": {
+                        "email": "The email is invalid",
+                        "password": "The password is too short"
+                    }
+                }
+            }
+        }
+    },
+    "Default429": {
+        "description": "The user has sent too many requests in a given amount of time.",
+        "type": "object",
+        "properties": {
+            "error": {
+                "type": "string",
+                "description": "Error code",
+                "example": "TOO_MANY_REQUESTS"
+            },
+            "message": {
+                "type": "string",
+                "description": "Error description",
+                "example": "The user has sent too many requests in a given amount of time"
+            },
+            "details": {
+                "type": "object",
+                "description": "Additional info about the error",
+                "properties": {
+                    "rate_limit": {
+                        "type": "string",
+                        "description": "Explanation of the rate limit",
+                        "example": "The user has exceeded the rate limit"
+                    },
+                    "retry_after": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Time when the user can retry the request",
+                        "example": "2024-05-31T12:45:00Z"
+                    }
+                }
+            }
+        }
+    },
+    "Default500": {
+        "description": "The server has encountered a situation it doesn't know how to handle.",
+        "type": "object",
+        "properties": {
+            "error": {
+                "type": "string",
+                "description": "Error code",
+                "example": "INTERNAL_SERVER_ERROR"
+            },
+            "message": {
+                "type": "string",
+                "description": "Error description",
+                "example": "The server has encountered a situation it doesn't know how to handle"
+            },
+            "details": {
+                "type": "object",
+                "description": "Additional info about the error",
+                "example": {
+                    "description": "The server has encountered a situation it doesn't know how to handle"
+                }
+            }
+        }
+    }
+}
